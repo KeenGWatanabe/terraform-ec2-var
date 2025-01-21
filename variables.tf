@@ -8,12 +8,12 @@ variable "env" {
 variable "vpc_name" {
  description = "The VPC Name to use"
  type        = string
- default     = "vpc_ce9_learner"
+ default     = "roger-vpc2"
 }
 
 
 variable "subnet_name" {
  description = "The VPC Name to use"
  type        = string
- default     = "subnet_ce9_learner_us-east-1a"
+ default     = "roger-public-subnet-1a"
 }

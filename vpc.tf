@@ -4,7 +4,7 @@
 data "aws_vpc" "existing_ce9_vpc" {
  filter {
    name   = "tag:Name"
-   values = ["vpc_ce9_learner"]
+   values = ["roger-vpc2"]
  }
 }
 
@@ -12,7 +12,7 @@ data "aws_vpc" "existing_ce9_vpc" {
 data "aws_subnet" "existing_ce9_pub_subnet" {
  filter {
    name   = "tag:Name"
-   values = ["subnet_ce9_learner_us-east-1a"]
+   values = ["roger-public-subnet-1a"]
  }
 }
 
