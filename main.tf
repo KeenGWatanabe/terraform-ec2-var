@@ -2,22 +2,22 @@ locals {
  resource_prefix = "roger-rds"
 }
 
-
+#declaring a aws_instance named "public"
 resource "aws_instance" "public" {
  ami                         = "ami-0df8c184d5f6ae949" #Challenge, find the AMI ID of Amazon Linux 2 in us-east-1
  instance_type               = "t2.micro"
- subnet_id                   = data.aws_subnet.existing_ce9_pub_subnet.id
+ subnet_id                   = data.aws_subnet.existing_ce9_pub_subnet.id #vpc.tf data{}
  associate_public_ip_address = true
- key_name                    = "roger-tf-kp" #Change to your keyname, e.g. jazeel-key-pair
- vpc_security_group_ids = ["sg-0885a93971d5ae801"] #[aws_security_group.allow_ssh.id]
+ key_name                    = "roger-tf-kp" #Change to your keyname
+ vpc_security_group_ids = [aws_security_group.allow_ssh.id] #["sg-0885a93971d5ae801"]
  tags = {
-   Name = "${ local.resource_prefix }-ec2-${ var.env }" # Ensure your
+   Name = "${ local.resource_prefix }-ec2-${ var.env }" # Ensure your 
  }
 }
 
 
 output "ec2_public_ip" {
- value = aws_instance.public.public_ip
+ value = aws_instance.public.public_ip #print (L6 resource)aws_instance+public (L19 output)public ip
 }
 
 

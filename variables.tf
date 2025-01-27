@@ -1,7 +1,7 @@
 variable "env" {
  description = "The environment of the AWS infrastructure"
  type        = string
- default     = "dev"
+ default     = "rds"
 }
 
 

@@ -16,4 +16,10 @@ data "aws_subnet" "existing_ce9_pub_subnet" {
  }
 }
 
+data "aws_security_group" "allow_ssh" {
+  filter {
+    name   = "group-name"
+    values = ["roger-rds-sg"] #Replace with your security group name
+  }
+}
 
