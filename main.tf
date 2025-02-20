@@ -1,5 +1,5 @@
 locals {
- resource_prefix = "roger-rds"
+ resource_prefix = "roger-vpc"
 }
 
 #declaring a aws_instance named "public"
@@ -8,7 +8,7 @@ resource "aws_instance" "public" {
  instance_type               = "t2.micro"
  subnet_id                   = data.aws_subnet.existing_ce9_pub_subnet.id #src vpc.tf data{}
  associate_public_ip_address = true
- key_name                    = "roger-debian-kp" #Change to your keyname
+ key_name                    = "roger-linux-kp" #Change to your keyname
  vpc_security_group_ids = [data.aws_security_group.existing_sg.id] #["sg-0885a93971d5ae801"]
  tags = {
    Name = "${ local.resource_prefix }-ec2-${ var.env }" # Ensure your 
